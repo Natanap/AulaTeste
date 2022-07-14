@@ -1,0 +1,14 @@
+/* 
+  LoginLocalizable.strings
+  Login
+
+  Created by Moacir Ezequiel Lamego on 13/07/2022.
+  
+*/
+
+"email"="Email";
+"password"="Senha";
+"buttonOpen"="Entrar";
+"buttonRegister"="Registrar";
+"emailPlaceHolder"="Endereço de email para logar";
+"passwordPlaceHolder"="Digite sua senha";
