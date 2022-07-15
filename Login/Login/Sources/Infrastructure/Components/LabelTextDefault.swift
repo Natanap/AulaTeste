@@ -45,15 +45,17 @@ class LabelTextDefault: UIView {
         
         self.addSubview(label)
         self.addSubview(textField)
-            
+
+        let kTop: CGFloat = 8
+        
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-            label.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
-            label.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
+            label.topAnchor.constraint(equalTo: self.topAnchor, constant: ConstantsConstraint.zeroAnchor),
+            label.leftAnchor.constraint(equalTo: self.leftAnchor, constant: ConstantsConstraint.zeroAnchor),
+            label.rightAnchor.constraint(equalTo: self.rightAnchor, constant: ConstantsConstraint.zeroAnchor),
             
-            textField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 8),
-            textField.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
-            textField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
+            textField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: kTop),
+            textField.leftAnchor.constraint(equalTo: self.leftAnchor, constant: ConstantsConstraint.zeroAnchor),
+            textField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: ConstantsConstraint.zeroAnchor),
             
             self.bottomAnchor.constraint(equalTo: textField.bottomAnchor)
         ])

@@ -10,7 +10,7 @@ import UIKit
 
 class TextFieldDefault: UITextField {
     convenience init(placeholder: String) {
-        self.init(placeholder: placeholder, font: UIFont.systemFont(ofSize: 14), keyboardType: .default, returnKeyType: .done)
+        self.init(placeholder: placeholder, font: UIFont.systemFont(ofSize: Constants.fontSize), keyboardType: .default, returnKeyType: .done)
     }
     
     init(placeholder: String, font: UIFont, keyboardType: UIKeyboardType, returnKeyType: UIReturnKeyType) {

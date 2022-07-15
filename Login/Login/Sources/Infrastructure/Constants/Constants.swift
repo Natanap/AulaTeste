@@ -13,6 +13,16 @@ struct ConstantsComponents {
     static let LabelFontSize: CGFloat = 14
 }
 
+struct ConstantsConstraint {
+    static let zeroAnchor: CGFloat = 0
+    static let topAnchor: CGFloat = 12
+    static let leftAnchor: CGFloat = 12
+    static let rightAnchor: CGFloat = -12
+    static let bottomAnchor: CGFloat = -12
+}
+
+
 struct Constants {
+    static let fontSize: CGFloat = 14
     
 }

@@ -11,9 +11,17 @@ import UIKit
 class LoginView: UIView {
     
     //MARK: - Propperts
+    lazy var logoImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "Logo"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        
+        return imageView
+    }()
+    
     lazy var emailField = LabelTextDefault(labelText: LocalizableStrings.email.localize(),
                                            placeholder: LocalizableStrings.emailPlaceHolder.localize(),
-                                           font: UIFont.systemFont(ofSize: 14),
+                                           font: UIFont.systemFont(ofSize: Constants.fontSize),
                                            keyboardType: .emailAddress,
                                            returnKeyType: .next)
 
@@ -38,19 +46,33 @@ class LoginView: UIView {
     }
     
     private func setupVisualElements() {
+        setupImageView()
         setupFieldEmail()
         setupFieldPassword()
         setupButtonOpen()
         setupButtonRegister()
     }
     
+    private func setupImageView() {
+        self.addSubview(logoImageView)
+        
+        let kTop: CGFloat = 60
+        
+        NSLayoutConstraint.activate([
+            logoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: kTop),
+            logoImageView.widthAnchor.constraint(equalToConstant: 200),
+            logoImageView.heightAnchor.constraint(equalToConstant: 200),
+            logoImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
+    }
+    
     private func setupFieldEmail() {
         self.addSubview(emailField)
         
         NSLayoutConstraint.activate([
-            emailField.topAnchor.constraint(equalTo: self.topAnchor, constant: 60),
-            emailField.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
-            emailField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -12),
+            emailField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: ConstantsConstraint.topAnchor),
+            emailField.leftAnchor.constraint(equalTo: self.leftAnchor, constant: ConstantsConstraint.leftAnchor),
+            emailField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: ConstantsConstraint.rightAnchor),
         ])
     }
     
@@ -58,19 +80,20 @@ class LoginView: UIView {
         self.addSubview(passwordField)
         
         NSLayoutConstraint.activate([
-            passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 20),
-            passwordField.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
-            passwordField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -12),
+            passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: ConstantsConstraint.topAnchor),
+            passwordField.leftAnchor.constraint(equalTo: self.leftAnchor, constant: ConstantsConstraint.leftAnchor),
+            passwordField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: ConstantsConstraint.rightAnchor),
         ])
     }
     
     private func setupButtonOpen() {
         self.addSubview(buttonOpen)
+        let kTop: CGFloat = 30
         
         NSLayoutConstraint.activate([
-            buttonOpen.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 30),
-            buttonOpen.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
-            buttonOpen.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -12),
+            buttonOpen.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: kTop),
+            buttonOpen.leftAnchor.constraint(equalTo: self.leftAnchor, constant: ConstantsConstraint.leftAnchor),
+            buttonOpen.rightAnchor.constraint(equalTo: self.rightAnchor, constant: ConstantsConstraint.rightAnchor),
         ])
     }
     
@@ -78,9 +101,9 @@ class LoginView: UIView {
         self.addSubview(buttonRegister)
         
         NSLayoutConstraint.activate([
-            buttonRegister.topAnchor.constraint(equalTo: buttonOpen.bottomAnchor, constant: 20),
-            buttonRegister.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
-            buttonRegister.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -12),
+            buttonRegister.topAnchor.constraint(equalTo: buttonOpen.bottomAnchor, constant: ConstantsConstraint.topAnchor),
+            buttonRegister.leftAnchor.constraint(equalTo: self.leftAnchor, constant: ConstantsConstraint.leftAnchor),
+            buttonRegister.rightAnchor.constraint(equalTo: self.rightAnchor, constant: ConstantsConstraint.rightAnchor),
         ])
     }
 }
