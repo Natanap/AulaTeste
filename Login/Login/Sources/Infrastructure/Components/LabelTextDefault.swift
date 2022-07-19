@@ -13,13 +13,14 @@ class LabelTextDefault: UIView {
     //MARK: - Properts
     
     lazy private var label = LabelDefault(title: String.empty)
-    lazy private var textField = TextFieldDefault(placeholder: String.empty)
+    lazy var textField = TextFieldDefault(placeholder: String.empty)
     
-    init(labelText: String, placeholder: String) {
+    init(labelText: String, placeholder: String, isSecureTextEntry: Bool = false) {
         super.init(frame: .zero)
         
         self.label.text = labelText
         self.textField.placeholder = placeholder
+        self.textField.isSecureTextEntry = isSecureTextEntry
         
         setupVisualElements()
     }

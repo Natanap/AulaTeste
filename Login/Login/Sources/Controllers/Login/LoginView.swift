@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
-class LoginView: UIView {
+class LoginView: ViewDefault {
+    //MARk: - Vars
+    var scrollPostionDefault: CGPoint?
     
     //MARK: - Propperts
     lazy var logoImageView: UIImageView = {
@@ -26,26 +28,17 @@ class LoginView: UIView {
                                            returnKeyType: .next)
 
     lazy var passwordField = LabelTextDefault(labelText: LocalizableStrings.password.localize(),
-                                              placeholder: LocalizableStrings.passwordPlaceHolder.localize())
+                                              placeholder: LocalizableStrings.passwordPlaceHolder.localize(),isSecureTextEntry: true)
     
     lazy var buttonOpen = ButtonDefault(title: LocalizableStrings.buttonOpen.localize())
     lazy var buttonRegister = ButtonDefault(title: LocalizableStrings.buttonRegister.localize())
     
     //MARK: - Inits
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func setupVisualElements() {
+        super.setupVisualElements()
+        self.scrollPostionDefault = self.scrollView.contentOffset
         
-        self.backgroundColor = .viewBackground
-        
-        setupVisualElements()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupVisualElements() {
         setupImageView()
         setupFieldEmail()
         setupFieldPassword()
@@ -54,56 +47,72 @@ class LoginView: UIView {
     }
     
     private func setupImageView() {
-        self.addSubview(logoImageView)
+        contentView.addSubview(logoImageView)
         
-        let kTop: CGFloat = 60
+        let kTop: CGFloat = 12
         
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: kTop),
+            logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: kTop),
             logoImageView.widthAnchor.constraint(equalToConstant: 200),
             logoImageView.heightAnchor.constraint(equalToConstant: 200),
-            logoImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            logoImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor)
         ])
     }
     
     private func setupFieldEmail() {
-        self.addSubview(emailField)
+        contentView.addSubview(emailField)
+        emailField.textField.delegate = self
         
         NSLayoutConstraint.activate([
             emailField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: ConstantsConstraint.topAnchor),
-            emailField.leftAnchor.constraint(equalTo: self.leftAnchor, constant: ConstantsConstraint.leftAnchor),
-            emailField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: ConstantsConstraint.rightAnchor),
+            emailField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: ConstantsConstraint.leftAnchor),
+            emailField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: ConstantsConstraint.rightAnchor),
         ])
     }
     
     private func setupFieldPassword() {
-        self.addSubview(passwordField)
+        contentView.addSubview(passwordField)
+        passwordField.textField.delegate = self
         
         NSLayoutConstraint.activate([
             passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: ConstantsConstraint.topAnchor),
-            passwordField.leftAnchor.constraint(equalTo: self.leftAnchor, constant: ConstantsConstraint.leftAnchor),
-            passwordField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: ConstantsConstraint.rightAnchor),
+            passwordField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: ConstantsConstraint.leftAnchor),
+            passwordField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: ConstantsConstraint.rightAnchor),
         ])
     }
     
     private func setupButtonOpen() {
-        self.addSubview(buttonOpen)
+        contentView.addSubview(buttonOpen)
+        buttonOpen.addTarget(self, action: #selector(buttonOpenTap), for: .touchUpInside)
+        
         let kTop: CGFloat = 30
         
         NSLayoutConstraint.activate([
             buttonOpen.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: kTop),
-            buttonOpen.leftAnchor.constraint(equalTo: self.leftAnchor, constant: ConstantsConstraint.leftAnchor),
-            buttonOpen.rightAnchor.constraint(equalTo: self.rightAnchor, constant: ConstantsConstraint.rightAnchor),
+            buttonOpen.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: ConstantsConstraint.leftAnchor),
+            buttonOpen.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: ConstantsConstraint.rightAnchor),
         ])
     }
     
     private func setupButtonRegister() {
-        self.addSubview(buttonRegister)
+        contentView.addSubview(buttonRegister)
         
         NSLayoutConstraint.activate([
             buttonRegister.topAnchor.constraint(equalTo: buttonOpen.bottomAnchor, constant: ConstantsConstraint.topAnchor),
-            buttonRegister.leftAnchor.constraint(equalTo: self.leftAnchor, constant: ConstantsConstraint.leftAnchor),
-            buttonRegister.rightAnchor.constraint(equalTo: self.rightAnchor, constant: ConstantsConstraint.rightAnchor),
+            buttonRegister.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: ConstantsConstraint.leftAnchor),
+            buttonRegister.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: ConstantsConstraint.rightAnchor),
         ])
+    }
+    
+    //MARK: - Actions
+    @objc
+    private func buttonOpenTap() {
+        if !RegExp.checkPasswordComplexity(password: self.passwordField.textField.text!, length: 6, patternsToEscape:[], caseSensitivty: true, numericDigits: true, specialCharacter: true) {
+            print("senha nao preenche os requisitos")
+            self.passwordField.textField.layer.borderColor = UIColor.red.cgColor
+//            onPasswordWrong?()
+        } else {
+            self.passwordField.textField.layer.borderColor = UIColor.black.cgColor
+        }
     }
 }

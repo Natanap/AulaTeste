@@ -20,6 +20,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: winScene)
         
         let navigationController = UINavigationController()
+        
+        /*
+         Deixa o Navbar da mesma cor que o fundo mesmo quando scrola para cima.
+         
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .viewBackground
+        navigationController.navigationBar.standardAppearance = appearance
+        navigationController.navigationBar.scrollEdgeAppearance = appearance
+        */
+        
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.backgroundColor = .viewBackground
+        
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         

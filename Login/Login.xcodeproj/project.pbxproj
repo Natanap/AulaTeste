@@ -29,6 +29,10 @@
 		9931C9262880CE7200519E89 /* TextFieldDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9931C9252880CE7200519E89 /* TextFieldDefault.swift */; };
 		9931C9282880D25300519E89 /* LabelTextDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9931C9272880D25300519E89 /* LabelTextDefault.swift */; };
 		9931C92A2880D30100519E89 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9931C9292880D30100519E89 /* String+.swift */; };
+		9938981A288615E7008E86A3 /* ViewDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99389819288615E7008E86A3 /* ViewDefault.swift */; };
+		9938981C28861D87008E86A3 /* ViewControllerDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9938981B28861D87008E86A3 /* ViewControllerDefault.swift */; };
+		9938981E288623D5008E86A3 /* LoginViewTextFieldDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9938981D288623D5008E86A3 /* LoginViewTextFieldDelegateExtension.swift */; };
+		99389821288632EF008E86A3 /* RegExp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99389820288632EF008E86A3 /* RegExp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +79,10 @@
 		9931C9252880CE7200519E89 /* TextFieldDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDefault.swift; sourceTree = "<group>"; };
 		9931C9272880D25300519E89 /* LabelTextDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextDefault.swift; sourceTree = "<group>"; };
 		9931C9292880D30100519E89 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		99389819288615E7008E86A3 /* ViewDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDefault.swift; sourceTree = "<group>"; };
+		9938981B28861D87008E86A3 /* ViewControllerDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDefault.swift; sourceTree = "<group>"; };
+		9938981D288623D5008E86A3 /* LoginViewTextFieldDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTextFieldDelegateExtension.swift; sourceTree = "<group>"; };
+		99389820288632EF008E86A3 /* RegExp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegExp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +202,7 @@
 			children = (
 				9931C90D287F7E3500519E89 /* LoginViewController.swift */,
 				9931C90F287F7F4E00519E89 /* LoginView.swift */,
+				9938981D288623D5008E86A3 /* LoginViewTextFieldDelegateExtension.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -210,6 +219,7 @@
 		9931C914287F875100519E89 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				9938981F288632E1008E86A3 /* Utils */,
 				9931C91D287F9BA800519E89 /* Components */,
 				9931C920287F9D2B00519E89 /* Constants */,
 				9931C91A287F96E400519E89 /* Extensions */,
@@ -242,6 +252,8 @@
 				9931C923287F9ED800519E89 /* LabelDefault.swift */,
 				9931C9252880CE7200519E89 /* TextFieldDefault.swift */,
 				9931C9272880D25300519E89 /* LabelTextDefault.swift */,
+				99389819288615E7008E86A3 /* ViewDefault.swift */,
+				9938981B28861D87008E86A3 /* ViewControllerDefault.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -252,6 +264,14 @@
 				9931C921287F9D3900519E89 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		9938981F288632E1008E86A3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				99389820288632EF008E86A3 /* RegExp.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,7 +409,9 @@
 				9931C90E287F7E3500519E89 /* LoginViewController.swift in Sources */,
 				9931C922287F9D3900519E89 /* Constants.swift in Sources */,
 				9931C924287F9ED800519E89 /* LabelDefault.swift in Sources */,
+				9938981E288623D5008E86A3 /* LoginViewTextFieldDelegateExtension.swift in Sources */,
 				9931C9262880CE7200519E89 /* TextFieldDefault.swift in Sources */,
+				9938981C28861D87008E86A3 /* ViewControllerDefault.swift in Sources */,
 				9931C91C287F96F600519E89 /* Color+.swift in Sources */,
 				9931C9282880D25300519E89 /* LabelTextDefault.swift in Sources */,
 				9931C910287F7F4E00519E89 /* LoginView.swift in Sources */,
@@ -398,6 +420,8 @@
 				9931C8D2287F7B2D00519E89 /* AppDelegate.swift in Sources */,
 				9931C90A287F7CDE00519E89 /* LoginCoordinator.swift in Sources */,
 				9931C8D4287F7B2D00519E89 /* SceneDelegate.swift in Sources */,
+				99389821288632EF008E86A3 /* RegExp.swift in Sources */,
+				9938981A288615E7008E86A3 /* ViewDefault.swift in Sources */,
 				9931C91F287F9BBD00519E89 /* ButtonDefault.swift in Sources */,
 				9931C8DC287F7B2D00519E89 /* Login.xcdatamodeld in Sources */,
 				9931C917287F878600519E89 /* LocalizableStrings.swift in Sources */,
