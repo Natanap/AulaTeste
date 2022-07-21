@@ -8,7 +8,11 @@
 
 "email"="Email";
 "password"="Senha";
+"passwordConfirm"="Confirme a Senha";
 "buttonOpen"="Entrar";
 "buttonRegister"="Registrar";
 "emailPlaceHolder"="Endereço de email para logar";
 "passwordPlaceHolder"="Digite sua senha";
+"passwordConfirmPlaceHolder"="Digite novamente sua senha";
+"registerTitle"="Registrar";
+"loginTitle"="Entrar";

@@ -25,6 +25,17 @@ class LabelTextDefault: UIView {
         setupVisualElements()
     }
     
+    init(labelText: String, placeholder: String, isSecureTextEntry: Bool = false, returnKeyType: UIReturnKeyType = .default) {
+        super.init(frame: .zero)
+        
+        self.label.text = labelText
+        self.textField.placeholder = placeholder
+        self.textField.isSecureTextEntry = isSecureTextEntry
+        self.textField.returnKeyType = returnKeyType
+        
+        setupVisualElements()
+    }
+    
     init(labelText: String, placeholder: String, font: UIFont, keyboardType: UIKeyboardType, returnKeyType: UIReturnKeyType) {
         super.init(frame: .zero)
 

@@ -11,10 +11,15 @@ import UIKit
 enum LocalizableStrings: String {
     case email
     case password
+    case passwordConfirm
     case buttonOpen
     case buttonRegister
     case emailPlaceHolder
     case passwordPlaceHolder
+    case passwordConfirmPlaceHolder
+
+    case loginTitle
+    case registerTitle
     
     func localize() -> String {
         rawValue.localizeInCurrentBundle()

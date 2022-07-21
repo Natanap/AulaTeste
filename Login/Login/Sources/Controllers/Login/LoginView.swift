@@ -9,7 +9,12 @@ import Foundation
 import UIKit
 
 class LoginView: ViewDefault {
-    //MARk: - Vars
+    //MARK: - Clousures
+    var onTapRegister:(() -> Void)?
+    var onTapOpen:((_ email: String, _ password: String) -> Void)?
+    var onPasswordWrong:(() -> Void)?
+    
+    //MARK: - Vars
     var scrollPostionDefault: CGPoint?
     
     //MARK: - Propperts
@@ -74,6 +79,17 @@ class LoginView: ViewDefault {
         contentView.addSubview(passwordField)
         passwordField.textField.delegate = self
         
+        let rightButton = UIButton(type: .custom)
+        rightButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        rightButton.addTarget(self, action: #selector(changePasswordVisibility(_:)), for: .touchUpInside)
+        
+        if let image = UIImage(systemName: "eye.fill") {
+            rightButton.setImage(image, for: .normal)
+        }
+        
+        passwordField.textField.rightViewMode = .always
+        passwordField.textField.rightView = rightButton
+        
         NSLayoutConstraint.activate([
             passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: ConstantsConstraint.topAnchor),
             passwordField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: ConstantsConstraint.leftAnchor),
@@ -97,6 +113,8 @@ class LoginView: ViewDefault {
     private func setupButtonRegister() {
         contentView.addSubview(buttonRegister)
         
+        buttonRegister.addTarget(self, action: #selector(buttonRegisterTap), for: .touchUpInside)
+        
         NSLayoutConstraint.activate([
             buttonRegister.topAnchor.constraint(equalTo: buttonOpen.bottomAnchor, constant: ConstantsConstraint.topAnchor),
             buttonRegister.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: ConstantsConstraint.leftAnchor),
@@ -110,9 +128,34 @@ class LoginView: ViewDefault {
         if !RegExp.checkPasswordComplexity(password: self.passwordField.textField.text!, length: 6, patternsToEscape:[], caseSensitivty: true, numericDigits: true, specialCharacter: true) {
             print("senha nao preenche os requisitos")
             self.passwordField.textField.layer.borderColor = UIColor.red.cgColor
-//            onPasswordWrong?()
+            onPasswordWrong?()
         } else {
             self.passwordField.textField.layer.borderColor = UIColor.black.cgColor
+            
+            guard let email = self.emailField.textField.text else { return }
+            guard let password = self.passwordField.textField.text else { return }
+            
+            onTapOpen?(email, password)
         }
+    }
+    
+    @objc
+    private func changePasswordVisibility(_ sender: UIButton) {
+        passwordField.textField.isSecureTextEntry.toggle()
+        
+        if passwordField.textField.isSecureTextEntry {
+            if let image = UIImage(systemName: "eye.fill") {
+                sender.setImage(image, for: .normal)
+            }
+        } else {
+            if let image = UIImage(systemName: "eye.slash.fill") {
+                sender.setImage(image, for: .normal)
+            }
+        }
+    }
+    
+    @objc
+    private func buttonRegisterTap() {
+            onTapRegister?()
     }
 }

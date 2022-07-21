@@ -19,8 +19,6 @@ class ViewControllerDefault: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        self.title = "Tela de Login"
     }
 
     @objc

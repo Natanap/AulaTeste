@@ -33,6 +33,14 @@
 		9938981C28861D87008E86A3 /* ViewControllerDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9938981B28861D87008E86A3 /* ViewControllerDefault.swift */; };
 		9938981E288623D5008E86A3 /* LoginViewTextFieldDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9938981D288623D5008E86A3 /* LoginViewTextFieldDelegateExtension.swift */; };
 		99389821288632EF008E86A3 /* RegExp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99389820288632EF008E86A3 /* RegExp.swift */; };
+		99D985D72888B902001D1FC3 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D985D62888B902001D1FC3 /* RegisterCoordinator.swift */; };
+		99D985DA2888B98B001D1FC3 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D985D92888B98A001D1FC3 /* RegisterViewController.swift */; };
+		99D985DC2888B996001D1FC3 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D985DB2888B996001D1FC3 /* RegisterView.swift */; };
+		99D985DF2888D605001D1FC3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D985DE2888D605001D1FC3 /* ProfileViewController.swift */; };
+		99D985E12888D60F001D1FC3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D985E02888D60F001D1FC3 /* ProfileView.swift */; };
+		99D985E32888D61B001D1FC3 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D985E22888D61B001D1FC3 /* ProfileCoordinator.swift */; };
+		99D985E52888DB5D001D1FC3 /* StringProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D985E42888DB5D001D1FC3 /* StringProtocol+.swift */; };
+		99D985E72888DB8C001D1FC3 /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D985E62888DB8C001D1FC3 /* Collection+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +91,14 @@
 		9938981B28861D87008E86A3 /* ViewControllerDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDefault.swift; sourceTree = "<group>"; };
 		9938981D288623D5008E86A3 /* LoginViewTextFieldDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTextFieldDelegateExtension.swift; sourceTree = "<group>"; };
 		99389820288632EF008E86A3 /* RegExp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegExp.swift; sourceTree = "<group>"; };
+		99D985D62888B902001D1FC3 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
+		99D985D92888B98A001D1FC3 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		99D985DB2888B996001D1FC3 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		99D985DE2888D605001D1FC3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		99D985E02888D60F001D1FC3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		99D985E22888D61B001D1FC3 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		99D985E42888DB5D001D1FC3 /* StringProtocol+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringProtocol+.swift"; sourceTree = "<group>"; };
+		99D985E62888DB8C001D1FC3 /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +201,8 @@
 			children = (
 				9931C907287F7CB800519E89 /* Coordinator.swift */,
 				9931C909287F7CDE00519E89 /* LoginCoordinator.swift */,
+				99D985D62888B902001D1FC3 /* RegisterCoordinator.swift */,
+				99D985E22888D61B001D1FC3 /* ProfileCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -193,6 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				9931C90C287F7E2700519E89 /* Login */,
+				99D985DD2888D5F1001D1FC3 /* Profile */,
+				99D985D82888B973001D1FC3 /* Register */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -241,6 +261,8 @@
 			children = (
 				9931C91B287F96F600519E89 /* Color+.swift */,
 				9931C9292880D30100519E89 /* String+.swift */,
+				99D985E42888DB5D001D1FC3 /* StringProtocol+.swift */,
+				99D985E62888DB8C001D1FC3 /* Collection+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -272,6 +294,24 @@
 				99389820288632EF008E86A3 /* RegExp.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		99D985D82888B973001D1FC3 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				99D985D92888B98A001D1FC3 /* RegisterViewController.swift */,
+				99D985DB2888B996001D1FC3 /* RegisterView.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		99D985DD2888D5F1001D1FC3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				99D985DE2888D605001D1FC3 /* ProfileViewController.swift */,
+				99D985E02888D60F001D1FC3 /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,15 +449,23 @@
 				9931C90E287F7E3500519E89 /* LoginViewController.swift in Sources */,
 				9931C922287F9D3900519E89 /* Constants.swift in Sources */,
 				9931C924287F9ED800519E89 /* LabelDefault.swift in Sources */,
+				99D985E32888D61B001D1FC3 /* ProfileCoordinator.swift in Sources */,
+				99D985E52888DB5D001D1FC3 /* StringProtocol+.swift in Sources */,
 				9938981E288623D5008E86A3 /* LoginViewTextFieldDelegateExtension.swift in Sources */,
 				9931C9262880CE7200519E89 /* TextFieldDefault.swift in Sources */,
 				9938981C28861D87008E86A3 /* ViewControllerDefault.swift in Sources */,
 				9931C91C287F96F600519E89 /* Color+.swift in Sources */,
 				9931C9282880D25300519E89 /* LabelTextDefault.swift in Sources */,
 				9931C910287F7F4E00519E89 /* LoginView.swift in Sources */,
+				99D985E72888DB8C001D1FC3 /* Collection+.swift in Sources */,
+				99D985DA2888B98B001D1FC3 /* RegisterViewController.swift in Sources */,
+				99D985D72888B902001D1FC3 /* RegisterCoordinator.swift in Sources */,
+				99D985DC2888B996001D1FC3 /* RegisterView.swift in Sources */,
 				9931C92A2880D30100519E89 /* String+.swift in Sources */,
 				9931C908287F7CB800519E89 /* Coordinator.swift in Sources */,
 				9931C8D2287F7B2D00519E89 /* AppDelegate.swift in Sources */,
+				99D985DF2888D605001D1FC3 /* ProfileViewController.swift in Sources */,
+				99D985E12888D60F001D1FC3 /* ProfileView.swift in Sources */,
 				9931C90A287F7CDE00519E89 /* LoginCoordinator.swift in Sources */,
 				9931C8D4287F7B2D00519E89 /* SceneDelegate.swift in Sources */,
 				99389821288632EF008E86A3 /* RegExp.swift in Sources */,
@@ -600,6 +648,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -627,6 +676,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
