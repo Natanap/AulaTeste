@@ -24,4 +24,12 @@ extension UIColor {
     static var viewBackground: UIColor {
         return UIColor(named: "viewBackground") ?? .red
     }
+    
+    static var borderColorRed: UIColor {
+        return UIColor.red
+    }
+    
+    static var borderColorBlack: UIColor {
+        return UIColor.black
+    }
 }

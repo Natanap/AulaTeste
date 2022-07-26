@@ -9,62 +9,78 @@ import Foundation
 import UIKit
 
 class ProfileView: ViewDefault {
+    //MARK: - Clouseres
+    var onNextTap:(() -> Void)?
+    
+    //MARK: - Properts
+    lazy var ageLabel = LabelDefault(title: LocalizableStrings.ageLabel.localize())
+    lazy var ageTextField = TextFieldDefault(placeholder: LocalizableStrings.ageTextField.localize())
+    lazy var agePickerView: ToolbarPickerView = {
+        let picker = ToolbarPickerView()
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        
+        picker.didTapDone = {[weak self] in
+            guard let self = self else { return }
+            
+            let row = picker.selectedRow(inComponent: 0)
+            picker.selectRow(row, inComponent: 0, animated: true)
+            self.ageTextField.text = Age.allCases[row].rawValue
+            self.ageTextField.resignFirstResponder()
+        }
+        
+        picker.didTapCancel = {
+            self.ageTextField.text = String()
+            self.ageTextField.resignFirstResponder()
+        }
+        
+        return picker
+    }()
+    
+    lazy var genderLabel = LabelDefault(title: LocalizableStrings.genderLabel.localize())
+    lazy var genderTextField = TextFieldDefault(placeholder: LocalizableStrings.genderTextField.localize())
+    lazy var genderPickerView: ToolbarPickerView = {
+        let picker = ToolbarPickerView()
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        
+        picker.didTapDone = {[weak self] in
+            guard let self = self else { return }
+            
+            let row = picker.selectedRow(inComponent: 0)
+            picker.selectRow(row, inComponent: 0, animated: true)
+            self.genderTextField.text = Gender.allCases[row].rawValue
+            self.genderTextField.resignFirstResponder()
+        }
+        
+        picker.didTapCancel = {
+            self.genderTextField.text = String()
+            self.genderTextField.resignFirstResponder()
+        }
+        
+        return picker
+    }()
+    
+    lazy var cpfLabel = LabelDefault(title: LocalizableStrings.cpfLabel.localize())
+    lazy var cpfTextField = TextFieldDefault(placeholder: LocalizableStrings.cpfTextField.localize())
+    
+    lazy var telefoneLabel = LabelDefault(title: LocalizableStrings.telefoneLabel.localize())
+    lazy var telefoneTextField = TextFieldDefault(placeholder: LocalizableStrings.telefoneTextField.localize())
+    
+    lazy var buttonSave = ButtonDefault(title: LocalizableStrings.saveButton.localize())
+    lazy var buttonNext = ButtonDefault(title: LocalizableStrings.nextButton.localize())
+    
     override func setupVisualElements() {
         super.setupVisualElements()
         
-        
-//        self.contentView.backgroundColor = UIColor(patternImage: UIImage(named: "Logo")!)
+        setupAgeElements()
+        setupGenderElements()
+        setupCpfElements()
+        setupTelefoneElements()
+        setupButtonsElements()
+    }
+    
+    //MARK: - Actions
+    @objc
+    func nextTap() {
+        self.onNextTap?()
     }
 }
-
-
-/*
-    - Usar titulo nas telas
-        - Usar largeTitle.
- 
-    - Tem que ter ScrollView
-    - Quando abrir lista (Campo Faixa Etaria e Genero)
-        - Em cima da lista tem que ter dois botoes
-            Cancelar que nao seleciona nada na lista e fecha a lista
-            Selecionar que seleciona o item da lista que esta em cima e fecha a lista
-    - Tem que utilizar as cores pré definidas
-    - Tem que ao salvar (nao faz nada)
-        - mas abre uma tela com o nome de EnderecoViewController
-            - Com a primeira label
-                - CEP
-            - Primeiro text field o campo cep e do lado dele um botao com uma lupa
- 
- 
- Faixa Etaria
-     0..15
-     16..25
-     26..35
-     36..50
-     >50
- 
- Genero
-    Carinha Masculina
-    Cainha Feminina
-    Não quero Informar
- 
- CPF
-    - Com mascara
-        123.456.789-01
-    - Calculo Digito Verificador
-             if "80626963915".isValidCPF {
-                 print("Valido")
-             }
-             
-             if "80626963914".isValidCPF {
-                 print("Valido")
-             } else {
-                 print("InValido")
-             }
-             
- Telefone
-    - Com Mascara
-        (99) 99999-9999
- 
- */
-
-

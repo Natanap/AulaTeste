@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 enum LocalizableStrings: String {
+    // Globals
+    case done
+    case cancel
+    
     case email
     case password
     case passwordConfirm
@@ -17,6 +21,24 @@ enum LocalizableStrings: String {
     case emailPlaceHolder
     case passwordPlaceHolder
     case passwordConfirmPlaceHolder
+    
+    // Tela de Profile
+    case profileTitle
+    case ageLabel
+    case ageTextField
+    case genderLabel
+    case genderTextField
+    case cpfLabel
+    case cpfTextField
+    case telefoneLabel
+    case telefoneTextField
+    case saveButton
+    case nextButton
+    
+    // Tela de Address
+    case addressTitle
+    case cepLabel
+    case cepTextField
 
     case loginTitle
     case registerTitle

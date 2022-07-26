@@ -6,6 +6,12 @@
   
 */
 
+// Globals
+"done"="Selecionar";
+"cancel"="Cancelar";
+"saveButton"="Salvar";
+"nextButton"= "Próxima";
+
 "email"="Email";
 "password"="Senha";
 "passwordConfirm"="Confirme a Senha";
@@ -16,3 +22,19 @@
 "passwordConfirmPlaceHolder"="Digite novamente sua senha";
 "registerTitle"="Registrar";
 "loginTitle"="Entrar";
+
+// Tela de Profile
+"profileTitle"="Meus Dados";
+"ageLabel"="Faixa etaria";
+"ageTextField"="Selecione na lista uma faixa etaria";
+"genderLabel"="Genero";
+"genderTextField"="Selecione o seu genero, se quiser";
+"cpfLabel"="CPF";
+"cpfTextField"="Informe seu CPF";
+"telefoneLabel"="Telefone Celular";
+"telefoneTextField"="Informe seu numero de telefone celular";
+
+// tela de address
+"addressTitle"="Meu endereço";
+"cepLabel"="CEP";
+"cepTextField"="Informe o cep";

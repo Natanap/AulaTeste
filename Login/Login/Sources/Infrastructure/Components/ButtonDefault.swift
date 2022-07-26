@@ -17,6 +17,14 @@ class ButtonDefault: UIButton {
         initDefault()
     }
     
+    init(image: UIImage) {
+        super.init(frame: .zero)
+        self.setTitle(String(), for: .normal)
+        self.setImage(image, for: .normal)
+        
+        initDefault()
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

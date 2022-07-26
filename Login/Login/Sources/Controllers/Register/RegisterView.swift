@@ -138,10 +138,10 @@ class RegisterView: ViewDefault {
     private func buttonOpenTap() {
         if !RegExp.checkPasswordComplexity(password: self.passwordField.textField.text!, length: 6, patternsToEscape:[], caseSensitivty: true, numericDigits: true, specialCharacter: true) {
             print("senha nao preenche os requisitos")
-            self.passwordField.textField.layer.borderColor = UIColor.red.cgColor
+            self.passwordField.textField.layer.borderColor = UIColor.borderColorRed.cgColor
             onPasswordWrong?()
         } else {
-            self.passwordField.textField.layer.borderColor = UIColor.black.cgColor
+            self.passwordField.textField.layer.borderColor = UIColor.borderColorBlack.cgColor
             
             guard let email = self.emailField.textField.text else { return }
             guard let password = self.passwordField.textField.text else { return }
@@ -222,9 +222,9 @@ extension RegisterView: UITextFieldDelegate {
                                                caseSensitivty: true,
                                                numericDigits: true,
                                                specialCharacter: true) {
-                textField.layer.borderColor = UIColor.red.cgColor
+                textField.layer.borderColor = UIColor.borderColorRed.cgColor
             } else {
-                textField.layer.borderColor = UIColor.black.cgColor
+                textField.layer.borderColor = UIColor.borderColorBlack.cgColor
             }
         }
     }

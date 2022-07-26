@@ -38,7 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        let coordinator = LoginCoordinator(navigationController: navigationController)
         
-        let coordinator = ProfileCoordinator(navigationController: navigationController)
+        let coordinator = AddressCoordinator(navigationController: navigationController)
 
         coordinator.start()
     }

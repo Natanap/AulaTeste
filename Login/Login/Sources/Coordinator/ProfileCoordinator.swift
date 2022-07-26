@@ -17,7 +17,16 @@ class ProfileCoordinator:Coordinator {
     
     func start() {
         let viewController = ProfileViewController()
+        
+        viewController.onNextTap = {
+            self.gotoNextView()
+        }
+        
         self.navigationController.pushViewController(viewController, animated: true)
     }
 
+    func gotoNextView() {
+        let coordinator = AddressCoordinator(navigationController: self.navigationController)
+        coordinator.start()
+    }
 }

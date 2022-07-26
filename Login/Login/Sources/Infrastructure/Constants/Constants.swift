@@ -19,6 +19,7 @@ struct ConstantsConstraint {
     static let leftAnchor: CGFloat = 12
     static let rightAnchor: CGFloat = -12
     static let bottomAnchor: CGFloat = -12
+    static let heightButtons: CGFloat = 40
 }
 
 
