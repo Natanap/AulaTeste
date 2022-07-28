@@ -86,15 +86,15 @@ extension ProfileView {
     }
     
     func setupButtonsElements() {
-//        contentView.addSubview(buttonSave)
+        contentView.addSubview(buttonSave)
         contentView.addSubview(buttonNext)
         buttonNext.addTarget(self, action: #selector(nextTap), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-//            buttonSave.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: ConstantsConstraint.leftAnchor),
-//            buttonSave.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: ConstantsConstraint.rightAnchor),
-//            buttonSave.heightAnchor.constraint(equalToConstant: ConstantsConstraint.heightButtons),
-//            buttonSave.bottomAnchor.constraint(equalTo: buttonNext.topAnchor, constant: -20),
+            buttonSave.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: ConstantsConstraint.leftAnchor),
+            buttonSave.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: ConstantsConstraint.rightAnchor),
+            buttonSave.heightAnchor.constraint(equalToConstant: ConstantsConstraint.heightButtons),
+            buttonSave.bottomAnchor.constraint(equalTo: buttonNext.topAnchor, constant: -20),
             
             buttonNext.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: ConstantsConstraint.leftAnchor),
             buttonNext.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: ConstantsConstraint.rightAnchor),

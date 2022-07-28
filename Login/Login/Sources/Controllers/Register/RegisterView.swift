@@ -10,8 +10,8 @@ import UIKit
 
 class RegisterView: ViewDefault {
     //MARK: - Clousures
-    var onTapRegister:(() -> Void)?
-    var onTapOpen:((_ email: String, _ password: String) -> Void)?
+    var onTapRegister:((_ email: String, _ password: String) -> Void)?
+    var onTapOpen:(() -> Void)?
     var onPasswordWrong:(() -> Void)?
     
     //MARK: - Vars
@@ -35,7 +35,14 @@ class RegisterView: ViewDefault {
                                                      returnKeyType: .done)
     
     lazy var buttonOpen = ButtonDefault(title: LocalizableStrings.buttonOpen.localize())
-    lazy var buttonRegister = ButtonDefault(title: LocalizableStrings.buttonRegister.localize())
+    lazy var buttonRegister: ButtonDefault = {
+        let button = ButtonDefault(title: LocalizableStrings.buttonRegister.localize())
+        
+        self.onTapRegister?(emailField.textField.text ?? String(),
+                            passwordField.textField.text ?? String())
+        
+        return button
+    }()
     
     //MARK: - ElementsVisual
     override func setupVisualElements() {
@@ -136,18 +143,7 @@ class RegisterView: ViewDefault {
     //MARK: - Actions
     @objc
     private func buttonOpenTap() {
-        if !RegExp.checkPasswordComplexity(password: self.passwordField.textField.text!, length: 6, patternsToEscape:[], caseSensitivty: true, numericDigits: true, specialCharacter: true) {
-            print("senha nao preenche os requisitos")
-            self.passwordField.textField.layer.borderColor = UIColor.borderColorRed.cgColor
-            onPasswordWrong?()
-        } else {
-            self.passwordField.textField.layer.borderColor = UIColor.borderColorBlack.cgColor
-            
-            guard let email = self.emailField.textField.text else { return }
-            guard let password = self.passwordField.textField.text else { return }
-            
-            onTapOpen?(email, password)
-        }
+        onTapOpen?()
     }
     
     @objc
@@ -182,7 +178,18 @@ class RegisterView: ViewDefault {
     
     @objc
     private func buttonRegisterTap() {
-            onTapRegister?()
+        if !RegExp.checkPasswordComplexity(password: self.passwordField.textField.text!, length: 6, patternsToEscape:[], caseSensitivty: true, numericDigits: true, specialCharacter: true) {
+            print("senha nao preenche os requisitos")
+            self.passwordField.textField.layer.borderColor = UIColor.borderColorRed.cgColor
+            onPasswordWrong?()
+        } else {
+            self.passwordField.textField.layer.borderColor = UIColor.borderColorBlack.cgColor
+            
+            guard let email = self.emailField.textField.text else { return }
+            guard let password = self.passwordField.textField.text else { return }
+            
+            onTapRegister?(email, password)
+        }
     }
 }
 

@@ -8,7 +8,19 @@
 import Foundation
 
 class RegisterViewController: ViewControllerDefault {
-    lazy var registerView = RegisterView()
+    var onTapRegister:((_ email: String, _ password: String) -> Void)?
+    
+    lazy var registerView: RegisterView = {
+        let view = RegisterView()
+        
+        view.onTapRegister = {[weak self] email, password in
+            if let self = self {
+                self.onTapRegister?(email, password)
+            }
+        }
+        
+        return view
+    }()
     
     override func loadView() {
         self.view = registerView

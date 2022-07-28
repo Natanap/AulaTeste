@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 class LoginCoordinator: Coordinator {
-    let navigationController: UINavigationController
+    private var flowViewModel: FlowViewModel
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init(flowViewModel: FlowViewModel) {
+        self.flowViewModel = flowViewModel
     }
     
     func start() {
@@ -22,14 +22,14 @@ class LoginCoordinator: Coordinator {
         }
         
         viewController.onTapOpen = {email, passwd in
-            
+            self.flowViewModel.userProfileViewModel.email = email            
         }
         
-        self.navigationController.pushViewController(viewController, animated: true)
+        self.flowViewModel.navigationController.pushViewController(viewController, animated: true)
     }
     
     private func gotoRegisterView() {
-        let coordinator = RegisterCoordinator(navigationController: self.navigationController)
+        let coordinator = RegisterCoordinator(flowViewModel: self.flowViewModel)
         coordinator.start()
     }
 }

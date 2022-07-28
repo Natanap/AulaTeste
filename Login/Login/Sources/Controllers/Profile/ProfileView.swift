@@ -11,6 +11,7 @@ import UIKit
 class ProfileView: ViewDefault {
     //MARK: - Clouseres
     var onNextTap:(() -> Void)?
+    var onSaveTap:((_ age: String, _ gender: String, _ cpf: String, _ phoneNumber: String) -> Void)?
     
     //MARK: - Properts
     lazy var ageLabel = LabelDefault(title: LocalizableStrings.ageLabel.localize())
@@ -69,7 +70,14 @@ class ProfileView: ViewDefault {
     lazy var telefoneLabel = LabelDefault(title: LocalizableStrings.telefoneLabel.localize())
     lazy var telefoneTextField = TextFieldDefault(placeholder: LocalizableStrings.telefoneTextField.localize())
     
-    lazy var buttonSave = ButtonDefault(title: LocalizableStrings.saveButton.localize())
+    lazy var buttonSave: ButtonDefault = {
+        let button = ButtonDefault(title: LocalizableStrings.saveButton.localize())
+        
+        button.addTarget(self, action: #selector(buttonSaveTap), for: .touchUpInside)
+        
+        return button
+    }()
+    
     lazy var buttonNext = ButtonDefault(title: LocalizableStrings.nextButton.localize())
     
     override func setupVisualElements() {
@@ -86,5 +94,13 @@ class ProfileView: ViewDefault {
     @objc
     func nextTap() {
         self.onNextTap?()
+    }
+    
+    @objc
+    func buttonSaveTap() {
+        self.onSaveTap?(ageTextField.text ?? String(),
+                        genderTextField.text ?? String(),
+                        cpfTextField.text ?? String(),
+                        telefoneTextField.text ?? String())
     }
 }

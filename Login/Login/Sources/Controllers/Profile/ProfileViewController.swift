@@ -10,6 +10,8 @@ import Foundation
 class ProfileViewController: ViewControllerDefault {
     //MARK: - Clouseres
     var onNextTap:(() -> Void)?
+    var onSaveTap:((_ age: String, _ gender: String, _ cpf: String, _ phoneNumber: String) -> Void)?
+
     
     //MARK: - Properts
     
@@ -20,6 +22,12 @@ class ProfileViewController: ViewControllerDefault {
             guard let self = self else { return }
             
             self.onNextTap?()
+        }
+        
+        profileView.onSaveTap = {[weak self] age, gender, cpf, phoneNumber in
+            if let self = self {
+                self.onSaveTap?(age, gender, cpf, phoneNumber)
+            }
         }
         
         return profileView

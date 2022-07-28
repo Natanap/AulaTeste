@@ -10,7 +10,7 @@ import UIKit
 
 struct FlowViewModel {
     let navigationController: UINavigationController
-    let userProfileViewModel: UserProfileViewModel
+    var userProfileViewModel: UserProfileViewModel
     
     init(navigationController: UINavigationController, userProfileViewModel: UserProfileViewModel) {
         self.navigationController = navigationController
