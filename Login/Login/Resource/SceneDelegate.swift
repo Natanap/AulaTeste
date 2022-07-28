@@ -35,10 +35,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        
+
+        let flowViewModel = FlowViewModel(navigationController: navigationController, userProfileViewModel: UserProfileViewModel())
+
 //        let coordinator = LoginCoordinator(navigationController: navigationController)
         
-        let coordinator = AddressCoordinator(navigationController: navigationController)
+        let coordinator = AddressCoordinator(flowViewModel: FlowViewModel)
 
         coordinator.start()
     }

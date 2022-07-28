@@ -9,14 +9,27 @@ import Foundation
 import UIKit
 
 class AddressView: ViewDefault {
+    //MARK: - Clousures
+    var onSearchCEPTap: ((_ cep: String) -> Void)?
+    
     //MARK: - Properts
     lazy var cepLabel = LabelDefault(title: LocalizableStrings.cepLabel.localize())
     lazy var cepTextField = TextFieldDefault(placeholder: LocalizableStrings.cepTextField.localize())
-    lazy var buttonCep = ButtonDefault(image: UIImage(systemName: "magnifyingglass") ?? UIImage())
+    lazy var buttonCep:ButtonDefault = {
+        let button = ButtonDefault(image: UIImage(systemName: "magnifyingglass") ?? UIImage())
+        
+        button.addTarget(self, action: #selector(getCepTap), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    lazy var streetLabel = LabelDefault(title: "Endereço:")
+    lazy var streetTextField = TextFieldDefault(placeholder: "Informe o endereço")
     
     override func setupVisualElements() {
         super.setupVisualElements()
         setupCep()
+        setupStreet()
     }
     
     func setupCep() {
@@ -45,6 +58,35 @@ class AddressView: ViewDefault {
             cepTextField.trailingAnchor.constraint(equalTo: buttonCep.leadingAnchor, constant: ConstantsConstraint.rightAnchor),
         ])
     }
+    
+    private func setupStreet() {
+        contentView.addSubview(streetLabel)
+        contentView.addSubview(streetTextField)
+
+        NSLayoutConstraint.activate([
+            streetLabel.topAnchor.constraint(equalTo: cepTextField.bottomAnchor, constant: ConstantsConstraint.topAnchor),
+            streetLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: ConstantsConstraint.leftAnchor),
+            streetLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: ConstantsConstraint.rightAnchor),
+            
+            streetTextField.topAnchor.constraint(equalTo: streetLabel.bottomAnchor, constant: 8),
+            streetTextField.leadingAnchor.constraint(equalTo: streetLabel.leadingAnchor),
+            streetTextField.trailingAnchor.constraint(equalTo: streetLabel.trailingAnchor),
+        ])
+    }
+    
+    @objc
+    private func getCepTap() {
+        if let cep = self.cepTextField.text {
+            onSearchCEPTap?(cep)
+        }
+    }
+    
+    func setAddressFromSearchCEP(cepViewModel: CEPViewModel) {
+        // popular os campos da tela
+        DispatchQueue.main.async {
+            self.streetTextField.text = cepViewModel.logradouro
+        }
+    }
 }
 
 extension AddressView: UITextFieldDelegate {
@@ -66,3 +108,23 @@ extension AddressView: UITextFieldDelegate {
         return true
     }
 }
+
+/*
+ Todos os campos do endereco
+    - CEP
+    - Cidade
+    - Estado
+    - Endereco (Logradouro)
+    - Numero
+    - Bairro
+ 
+    - Botao Salvar
+        - Movimentar tudo para o ViewModel
+        - Chamar a tela de Home passando o viewmodel
+    - Botao Pular.
+        - Chamar a tela de Home passando o Viewmodel vazio.
+ 
+ 
+    - Tela de home.
+    - Mostrar o Email, Cidade no meio da tela.
+ */

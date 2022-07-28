@@ -48,6 +48,10 @@
 		99D985F2288F6855001D1FC3 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D985F1288F6855001D1FC3 /* AddressViewController.swift */; };
 		99D985F4288F6860001D1FC3 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D985F3288F6860001D1FC3 /* AddressView.swift */; };
 		99D985F6288F6883001D1FC3 /* AddressCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D985F5288F6883001D1FC3 /* AddressCoordinator.swift */; };
+		99D986C82891F07A001D1FC3 /* CEPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D986C72891F07A001D1FC3 /* CEPModel.swift */; };
+		99D986CA2891F086001D1FC3 /* CEPProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D986C92891F086001D1FC3 /* CEPProvider.swift */; };
+		99D986CC2891F092001D1FC3 /* CEPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D986CB2891F092001D1FC3 /* CEPViewModel.swift */; };
+		99D986CE28920B42001D1FC3 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D986CD28920B42001D1FC3 /* UserProfileViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +117,10 @@
 		99D985F1288F6855001D1FC3 /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		99D985F3288F6860001D1FC3 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		99D985F5288F6883001D1FC3 /* AddressCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCoordinator.swift; sourceTree = "<group>"; };
+		99D986C72891F07A001D1FC3 /* CEPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPModel.swift; sourceTree = "<group>"; };
+		99D986C92891F086001D1FC3 /* CEPProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPProvider.swift; sourceTree = "<group>"; };
+		99D986CB2891F092001D1FC3 /* CEPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEPViewModel.swift; sourceTree = "<group>"; };
+		99D986CD28920B42001D1FC3 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +211,7 @@
 		9931C905287F7BD100519E89 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				99D986C32891F04B001D1FC3 /* API */,
 				9931C90B287F7E1D00519E89 /* Controllers */,
 				9931C906287F7C9B00519E89 /* Coordinator */,
 				9931C914287F875100519E89 /* Infrastructure */,
@@ -343,6 +352,41 @@
 			path = Address;
 			sourceTree = "<group>";
 		};
+		99D986C32891F04B001D1FC3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				99D986C52891F05B001D1FC3 /* Model */,
+				99D986C62891F062001D1FC3 /* ViewModel */,
+				99D986C42891F053001D1FC3 /* Provider */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		99D986C42891F053001D1FC3 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				99D986C92891F086001D1FC3 /* CEPProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		99D986C52891F05B001D1FC3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				99D986C72891F07A001D1FC3 /* CEPModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		99D986C62891F062001D1FC3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				99D986CB2891F092001D1FC3 /* CEPViewModel.swift */,
+				99D986CD28920B42001D1FC3 /* UserProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -478,13 +522,17 @@
 				9931C90E287F7E3500519E89 /* LoginViewController.swift in Sources */,
 				9931C922287F9D3900519E89 /* Constants.swift in Sources */,
 				9931C924287F9ED800519E89 /* LabelDefault.swift in Sources */,
+				99D986CA2891F086001D1FC3 /* CEPProvider.swift in Sources */,
 				99D985E32888D61B001D1FC3 /* ProfileCoordinator.swift in Sources */,
+				99D986CC2891F092001D1FC3 /* CEPViewModel.swift in Sources */,
 				99D985E52888DB5D001D1FC3 /* StringProtocol+.swift in Sources */,
 				9938981E288623D5008E86A3 /* LoginViewTextFieldDelegateExtension.swift in Sources */,
 				9931C9262880CE7200519E89 /* TextFieldDefault.swift in Sources */,
 				99D985EF288F64FF001D1FC3 /* ProfileConstraints.swift in Sources */,
+				99D986C82891F07A001D1FC3 /* CEPModel.swift in Sources */,
 				9938981C28861D87008E86A3 /* ViewControllerDefault.swift in Sources */,
 				9931C91C287F96F600519E89 /* Color+.swift in Sources */,
+				99D986CE28920B42001D1FC3 /* UserProfileViewModel.swift in Sources */,
 				9931C9282880D25300519E89 /* LabelTextDefault.swift in Sources */,
 				9931C910287F7F4E00519E89 /* LoginView.swift in Sources */,
 				99D985E72888DB8C001D1FC3 /* Collection+.swift in Sources */,

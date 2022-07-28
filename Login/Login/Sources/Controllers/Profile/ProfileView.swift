@@ -28,7 +28,9 @@ class ProfileView: ViewDefault {
             self.ageTextField.resignFirstResponder()
         }
         
-        picker.didTapCancel = {
+        picker.didTapCancel = {[weak self] in
+            guard let self = self else { return }
+            
             self.ageTextField.text = String()
             self.ageTextField.resignFirstResponder()
         }
@@ -51,7 +53,9 @@ class ProfileView: ViewDefault {
             self.genderTextField.resignFirstResponder()
         }
         
-        picker.didTapCancel = {
+        picker.didTapCancel = {[weak self] in
+            guard let self = self else { return }
+            
             self.genderTextField.text = String()
             self.genderTextField.resignFirstResponder()
         }
