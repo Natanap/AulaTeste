@@ -124,7 +124,7 @@ class LoginView: ViewDefault {
     
     //MARK: - Actions
     @objc
-    private func buttonOpenTap() {
+    func buttonOpenTap() {
         if !RegExp.checkPasswordComplexity(password: self.passwordField.textField.text!, length: 6, patternsToEscape:[], caseSensitivty: true, numericDigits: true, specialCharacter: true) {
             print("senha nao preenche os requisitos")
             self.passwordField.textField.layer.borderColor = UIColor.borderColorRed.cgColor
@@ -132,15 +132,14 @@ class LoginView: ViewDefault {
         } else {
             self.passwordField.textField.layer.borderColor = UIColor.borderColorBlack.cgColor
             
-            guard let email = self.emailField.textField.text else { return }
-            guard let password = self.passwordField.textField.text else { return }
-            
-            onTapOpen?(email, password)
+            if let email = self.emailField.textField.text,  let password = self.passwordField.textField.text {
+                onTapOpen?(email, password)
+            }
         }
     }
     
     @objc
-    private func changePasswordVisibility(_ sender: UIButton) {
+    func changePasswordVisibility(_ sender: UIButton) {
         passwordField.textField.isSecureTextEntry.toggle()
         
         if passwordField.textField.isSecureTextEntry {
@@ -155,7 +154,7 @@ class LoginView: ViewDefault {
     }
     
     @objc
-    private func buttonRegisterTap() {
+    func buttonRegisterTap() {
             onTapRegister?()
     }
 }
